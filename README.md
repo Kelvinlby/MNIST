@@ -16,6 +16,6 @@ Model: "mnist_model"
 | dropout (Dropout) | (None, 1600) | 0 |
 | dense (Dense) | (None, 10) | 16,010 |
 
-Total params: 34,826 (136.04 KB)
+Total params: 34,826 (136.04 KB) <br>
 Trainable params: 34,826 (136.04 KB)
 Non-trainable params: 0 (0.00 B)
