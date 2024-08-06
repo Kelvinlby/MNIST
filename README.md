@@ -1,5 +1,6 @@
 # MNIST
-A simple MNIST model built with Keras (JAX backend)
+A simple MNIST model built with Keras (JAX backend).
+Computing precision: `float32`
 
 ## Model Architecture
 Model: "mnist_model"
@@ -16,7 +17,5 @@ Model: "mnist_model"
 | dense (Dense) | (None, 10) | 16,010 |
 
 Total params: 34,826 (136.04 KB)
-
 Trainable params: 34,826 (136.04 KB)
-
 Non-trainable params: 0 (0.00 B)
