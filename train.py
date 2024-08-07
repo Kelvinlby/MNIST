@@ -32,7 +32,7 @@ def main():
     instance.summary()
 
     instance.compile(
-        loss=keras.losses.BinaryCrossentropy(),
+        loss=keras.losses.CategoricalCrossentropy(),
         optimizer=keras.optimizers.Adam(),
         metrics=[
             keras.metrics.Precision(),
