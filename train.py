@@ -31,7 +31,6 @@ def main():
     instance = model.mnist()
     instance.summary()
 
-    # instance.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["precision"])
     instance.compile(
         loss=keras.losses.BinaryCrossentropy(),
         optimizer=keras.optimizers.Adam(),
