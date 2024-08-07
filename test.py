@@ -3,7 +3,7 @@ import numpy as np
 
 
 def run(image):
-    model = keras.models.load_model('Model/MNIST 2024-08-06 21:45:22.658017.keras')
+    model = keras.models.load_model('Model/MNIST DATETIME.keras')
     result = model.predict(np.expand_dims(image, axis=0))
     num = 0
 
