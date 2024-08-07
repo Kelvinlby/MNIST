@@ -31,13 +31,20 @@ def main():
     instance = model.mnist()
     instance.summary()
 
-    instance.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["precision"])
+    # instance.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["precision"])
+    instance.compile(
+        loss=keras.losses.BinaryCrossentropy(),
+        optimizer=keras.optimizers.Adam(),
+        metrics=[
+            keras.metrics.Precision(),
+        ]
+    )
 
     instance.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1)
 
     score = instance.evaluate(x_test, y_test, verbose=0)
     print("Test loss:", score[0])
-    print("Test accuracy:", score[1])
+    print("Test precision:", score[1])
 
     instance.save(f"./Model/MNIST {datetime.datetime.now()}.keras")
 
