@@ -5,6 +5,7 @@ from keras import layers
 import datetime
 import model
 
+
 # Model / data parameters
 batch_size = 256
 epochs = 20
