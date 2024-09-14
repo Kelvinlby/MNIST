@@ -41,5 +41,5 @@ def main(test_index):
 
 
 if __name__ == '__main__':
-    for i in range(200, 250):
-        main(i)
+    for n in range(200, 250):
+        main(n)
