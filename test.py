@@ -7,9 +7,9 @@ def run(image):
     result = model.predict(np.expand_dims(image, axis=0))
     num = 0
 
-    for i in range(10):
-        if result[0][i] > result[0][num]:
-            num = i
+    for index in range(10):
+        if result[0][index] > result[0][num]:
+            num = index
 
     return num
 
