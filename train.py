@@ -13,17 +13,19 @@ epochs = 20
 
 def main():
     # Load the data and split it between train and test sets
-    (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data('/mnt/Data/Dataset/mnist.npz')
+    with np.load('/mnt/Data/Dataset/MNIST/mnist.npz') as data:
+        x_train, y_train = data['x_train'], data['y_train']
+        x_test, y_test = data['x_test'], data['y_test']
 
     # Scale images to the [0, 1] range
-    x_train = x_train.astype("float32") / 255
-    x_test = x_test.astype("float32") / 255
+    x_train = x_train.astype('float32') / 255
+    x_test = x_test.astype('float32') / 255
     # Make sure images have shape (28, 28, 1)
     x_train = np.expand_dims(x_train, -1)
     x_test = np.expand_dims(x_test, -1)
-    print("x_train shape:", x_train.shape)
-    print(x_train.shape[0], "train samples")
-    print(x_test.shape[0], "test samples")
+    print('x_train shape:', x_train.shape)
+    print(x_train.shape[0], 'train samples')
+    print(x_test.shape[0], 'test samples')
 
     # convert class vectors to binary class matrices
     y_train = keras.utils.to_categorical(y_train, 10)
@@ -43,10 +45,10 @@ def main():
     instance.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1)
 
     score = instance.evaluate(x_test, y_test, verbose=0)
-    print("Test loss:", score[0])
-    print("Test precision:", score[1])
+    print('Test loss:', score[0])
+    print('Test precision:', score[1])
 
-    instance.save(f"./Model/MNIST {datetime.datetime.now()}.keras")
+    instance.save(f'./Model/MNIST {datetime.datetime.now()}.keras')
 
 
 if __name__ == '__main__':
